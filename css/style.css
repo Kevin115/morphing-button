@@ -53,7 +53,7 @@ body a {
 .morph-btn__content--open {
   opacity: 1;
   transition: all 0.7s ease-in-out;
-  transition-delay: 0.8s;
+  transition-delay: 0.3s;
 }
 /* line 42, ../sass/style.sass */
 .morph-btn--open {

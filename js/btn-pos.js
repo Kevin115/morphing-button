@@ -4,9 +4,9 @@
 
 // Add ID name of your Button/CTA
 var btnName = "btn";
-// add your effect for morph content default option is fade
-// options: fade-in, slide-left, slide-top
-var mcEffect = "fade-in";
+// add your effect for morph content - default fades in the content
+// options: default, slide-left, slide-top
+var mcEffect = "slide-top";
 
 var btn = document.getElementById(btnName);
 var morphBtn = document.getElementById("morph-btn");
@@ -17,10 +17,14 @@ var morphContent = document.getElementById("morph-btn__content");
 morphBtn.style.width = btn.offsetWidth + "px";
 morphBtn.style.height = btn.offsetHeight + "px";
 
-// add effect option on page load
-morphContent.className = morphContent.className + " " + mcEffect;
 
-// if browser resizes call function onWindowResize
+// if not default add effect class to morphContent
+if(mcEffect !== "default") {
+  morphContent.className = morphContent.className + " " + mcEffect;
+}
+
+
+// if browser resizes call the function onWindowResize
 window.addEventListener("resize", onWindowResize);
 
 function onWindowResize() {
@@ -45,7 +49,14 @@ btn.addEventListener("click", function() {
   if(morphBtn.className !== "morph-btn--open" && morphContent.className !== "morph-btn__content--open") {
       // add class to morphBtn and morphContent
       morphBtn.className = morphBtn.className + " morph-btn--open";
-      morphContent.className = morphContent.className + " morph-btn__content--open " + mcEffect + "--open";
+
+      // check if effect for morphContent was selected or is default
+      if(mcEffect !== "default") {
+        morphContent.className = morphContent.className + " morph-btn__content--open " + mcEffect + "--open";
+      } else {
+        morphContent.className = morphContent.className + " morph-btn__content--open ";
+      }
+
       // add overflow hidden to body
       document.body.style.overflow = "hidden";
       // add class btn--hide to btn
