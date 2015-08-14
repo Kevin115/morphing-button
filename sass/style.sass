@@ -1,0 +1,41 @@
+$btn-color: #e74c3c
+
+body
+  background: #2c3e50
+  font-family: Helvetiva, sans-serif
+  font-weight: 200
+  height: 1000px
+  a
+    text-decoration: none
+
+.btn
+  position: relative
+  padding: 20px 100px
+  border-radius: 50px
+  display: inline-block
+  color: white
+  transition: background .5s ease-in-out
+  z-index: 2
+  opacity: 1
+  &-wrapper
+    margin: 600px auto 0 auto
+    text-align: center
+  &--hide
+    opacity: 0
+  &--color
+    background: $btn-color
+
+.morph-content
+  position: fixed !important
+  background: $btn-color
+  border-radius: 50px
+  z-index: 1
+
+
+.morph-content--open
+  border-radius: 0
+  top: 0 !important
+  left: 0 !important
+  width: 100% !important
+  height: 100% !important
+  transition: all .4s ease-in-out
