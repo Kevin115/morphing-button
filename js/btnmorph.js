@@ -12,6 +12,12 @@ var mcEffect = "default";
 var mcTheme = "fullscreen"
 
 
+
+
+
+//**********************************************************//
+//                NO NEED TO TOUCH THIS HERE                //
+//**********************************************************//
 var btn = document.getElementById(btnName);
 var morphBtn = document.getElementById("morph-btn");
 var morphContent = document.getElementById("morph-btn__content");
@@ -21,6 +27,11 @@ var morphContent = document.getElementById("morph-btn__content");
 morphBtn.style.width = btn.offsetWidth + "px";
 morphBtn.style.height = btn.offsetHeight + "px";
 
+// if browser resizes call the function onWindowResize
+window.addEventListener("resize", onWindowResize);
+
+// if scroll call function onScroll
+window.addEventListener("scroll", onScroll);
 
 // if not default add effect class to morphContent
 if(mcEffect !== "default") {
@@ -28,17 +39,11 @@ if(mcEffect !== "default") {
 }
 
 
-// if browser resizes call the function onWindowResize
-window.addEventListener("resize", onWindowResize);
-
 function onWindowResize() {
   // get left offset position of btn and add to morph-btn
   morphBtn.style.left = btn.offsetLeft + "px";
 }
 
-
-// if scroll call function onScroll
-window.addEventListener("scroll", onScroll);
 
 function onScroll() {
   //get top position of btn relative to viewport
@@ -67,10 +72,6 @@ btn.addEventListener("click", function() {
       btn.className += " btn--hide";
       // prevent browser to skip to top of the page on btn click
       event.preventDefault();
-      // set bottom and right position to 0 on morphBtn
-      var att = ["bottom","right"];
-      for(var i = 0; i < att.length; i++) {
-          morphBtn.style[att[i]] = "0";
-      }
-    }
-  });
+
+  }
+});
