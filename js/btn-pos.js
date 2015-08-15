@@ -9,7 +9,7 @@ var btnName = "btn";
 var mcEffect = "default";
 // fullscreen or center content box-sizing
 // options: center, fullscreen
-var mcTheme = "center"
+var mcTheme = "fullscreen"
 
 
 var btn = document.getElementById(btnName);
@@ -24,7 +24,7 @@ morphBtn.style.height = btn.offsetHeight + "px";
 
 // if not default add effect class to morphContent
 if(mcEffect !== "default") {
-  morphContent.className = morphContent.className + " " + mcEffect;
+  morphContent.className += " " + mcEffect;
 }
 
 
@@ -52,19 +52,19 @@ btn.addEventListener("click", function() {
 
   if(morphBtn.className !== "morph-btn--open" && morphContent.className !== "morph-btn__content--open") {
       // add class to morphBtn and morphContent
-      morphBtn.className = morphBtn.className + " morph-btn--" + mcTheme + "-open";
+      morphBtn.className += " morph-btn--" + mcTheme + "-open";
 
       // check if effect for morphContent was selected or is default
       if(mcEffect !== "default") {
-        morphContent.className = morphContent.className + " morph-btn__content--open " + mcEffect + "--open";
+        morphContent.className += " morph-btn__content--open " + mcEffect + "--open";
       } else {
-        morphContent.className = morphContent.className + " morph-btn__content--open ";
+        morphContent.className += " morph-btn__content--open ";
       }
 
       // add overflow hidden to body
       document.body.style.overflow = "hidden";
       // add class btn--hide to btn
-      btn.className = btn.className + " btn--hide";
+      btn.className += " btn--hide";
       // prevent browser to skip to top of the page on btn click
       event.preventDefault();
       // set bottom and right position to 0 on morphBtn
