@@ -6,7 +6,8 @@
 var btnName = "btn";
 // add your effect for morph content - default fades in the content
 // options: default, slide-left, slide-top
-var mcEffect = "slide-top";
+var mcEffect = "default";
+
 
 var btn = document.getElementById(btnName);
 var morphBtn = document.getElementById("morph-btn");

@@ -1,4 +1,5 @@
 $btn-color: #e74c3c
+$border-radius: 50px
 
 body
   background: #2c3e50
@@ -26,19 +27,13 @@ body
   &--color
     background: $btn-color
 
+
 .morph-btn
   position: fixed !important
   background: $btn-color
-  border-radius: 50px
+  border-radius: $border-radius
   z-index: 1
   box-sizing: border-box
-  &__content
-    opacity: 0
-    position: relative
-    &--open
-      opacity: 1
-      transition: all .7s ease-in-out
-      transition-delay: .3s
   &--open
     border-radius: 0
     top: 0 !important
@@ -48,7 +43,16 @@ body
     transition: all .4s ease-in-out
     padding: 10px
     overflow: scroll
+  &__content
+    opacity: 0
+    position: relative
+    &--open
+      opacity: 1
+      transition: all .7s ease-in-out
+      transition-delay: .3s
 
+
+//morph-btn__content effects
 .slide-left
   left: -4000px
   &--open
