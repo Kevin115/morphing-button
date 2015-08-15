@@ -1,16 +1,16 @@
-/* line 4, ../sass/style.sass */
+/* line 6, ../sass/style.sass */
 body {
   background: #2c3e50;
   font-family: Helvetiva, sans-serif;
   font-weight: 200;
   height: 1000px;
 }
-/* line 9, ../sass/style.sass */
+/* line 11, ../sass/style.sass */
 body a {
   text-decoration: none;
 }
 
-/* line 12, ../sass/style.sass */
+/* line 14, ../sass/style.sass */
 .btn {
   position: relative;
   padding: 20px 60px;
@@ -21,66 +21,79 @@ body a {
   z-index: 2;
   opacity: 1;
 }
-/* line 21, ../sass/style.sass */
+/* line 23, ../sass/style.sass */
 .btn-wrapper {
   margin: 0 auto;
   text-align: center;
 }
-/* line 24, ../sass/style.sass */
+/* line 26, ../sass/style.sass */
 .btn--hide {
   opacity: 0;
   display: none;
 }
-/* line 27, ../sass/style.sass */
+/* line 29, ../sass/style.sass */
 .btn--color {
   background: #e74c3c;
 }
 
-/* line 31, ../sass/style.sass */
+/* line 33, ../sass/style.sass */
 .morph-btn {
-  position: fixed !important;
+  position: fixed;
   background: #e74c3c;
   border-radius: 50px;
   z-index: 1;
-  box-sizing: border-box;
 }
-/* line 37, ../sass/style.sass */
-.morph-btn--open {
+/* line 39, ../sass/style.sass */
+.morph-btn--fullscreen-open {
   border-radius: 0;
   top: 0 !important;
   left: 0 !important;
   width: 100% !important;
   height: 100% !important;
   transition: all 0.4s ease-in-out;
-  padding: 10px;
-  overflow: scroll;
+  padding: 30px;
+  overflow: auto;
+  box-sizing: border-box;
 }
-/* line 46, ../sass/style.sass */
+/* line 50, ../sass/style.sass */
+.morph-btn--center-open {
+  border-radius: 0;
+  top: 50% !important;
+  left: 50% !important;
+  width: 350px !important;
+  height: 400px !important;
+  margin: -200px 0 0 -175px;
+  transition: all 0.4s ease-in-out;
+  padding: 30px;
+  overflow: auto;
+  box-sizing: border-box;
+}
+/* line 61, ../sass/style.sass */
 .morph-btn__content {
   opacity: 0;
   position: relative;
 }
-/* line 49, ../sass/style.sass */
+/* line 64, ../sass/style.sass */
 .morph-btn__content--open {
   opacity: 1;
   transition: all 0.7s ease-in-out;
   transition-delay: 0.3s;
 }
 
-/* line 56, ../sass/style.sass */
+/* line 71, ../sass/style.sass */
 .slide-left {
   left: -4000px;
 }
-/* line 58, ../sass/style.sass */
+/* line 73, ../sass/style.sass */
 .slide-left--open {
   left: 0;
 }
 
-/* line 61, ../sass/style.sass */
+/* line 76, ../sass/style.sass */
 .slide-top {
   top: -4000px;
 }
-/* line 63, ../sass/style.sass */
+/* line 78, ../sass/style.sass */
 .slide-top--open {
   top: 0;
 }

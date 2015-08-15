@@ -7,6 +7,9 @@ var btnName = "btn";
 // add your effect for morph content - default fades in the content
 // options: default, slide-left, slide-top
 var mcEffect = "default";
+// fullscreen or center content box-sizing
+// options: center, fullscreen
+var mcTheme = "center"
 
 
 var btn = document.getElementById(btnName);
@@ -49,7 +52,7 @@ btn.addEventListener("click", function() {
 
   if(morphBtn.className !== "morph-btn--open" && morphContent.className !== "morph-btn__content--open") {
       // add class to morphBtn and morphContent
-      morphBtn.className = morphBtn.className + " morph-btn--open";
+      morphBtn.className = morphBtn.className + " morph-btn--" + mcTheme + "-open";
 
       // check if effect for morphContent was selected or is default
       if(mcEffect !== "default") {
