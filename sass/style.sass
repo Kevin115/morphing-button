@@ -2,14 +2,14 @@
 //                     BASIC OPTIONS                        //
 //**********************************************************//
 // must be the same color as original button of the page
-$btn-color: #2981ba
+$btnColor: #2981ba
 // musst be the same radius as original button of the page
-$border-radius: 50px
+$borderRadius: 50px
 //this is the width and height (morph content) of the center theme
 $ccThemeHeight: 300px
 $ccThemeWidth: 350px
 // border radius of center theme once it is open
-$radius-open: 5px
+$radiusOpen: 5px
 
 
 //**********************************************************//
@@ -30,24 +30,23 @@ body
   display: inline-block
   color: white
   transition: all .5s ease-in-out
-  z-index: 2
+  z-index: 1
   opacity: 1
   &-wrapper
     margin: 0 auto
     text-align: center
   &--hide
     opacity: 0
-    display: none
   &--color
-    background: $btn-color
+    background: $btnColor
 
 //**********************************************************//
 //        CSS FOR MORPHING BUTTON ***DON`T EDIT ***         //
 //**********************************************************//
 .morph-btn
   position: fixed
-  background: $btn-color
-  border-radius: $border-radius
+  background: $btnColor
+  border-radius: $borderRadius
   z-index: 1
   // fullscreen Theme
   &--fullscreen-open
@@ -60,9 +59,10 @@ body
     bottom: 0 !important
     transition: all .4s ease-in-out
     overflow: scroll
+    z-index: 2 !important
   // center container Theme
   &--center-open
-    border-radius: $radius-open
+    border-radius: $radiusOpen
     width: $ccThemeWidth !important
     height: $ccThemeHeight !important
     margin: (-$ccThemeHeight/2)  0  0  (-$ccThemeWidth/2)
@@ -70,6 +70,7 @@ body
     top: 50% !important
     transition: all .4s ease-in-out
     overflow: scroll
+    z-index: 2 !important
   &__content
     opacity: 0
     position: relative
@@ -79,7 +80,6 @@ body
       opacity: 1
       transition: all .7s ease-in-out
       transition-delay: .3s
-
 
 //morph-btn__content effects
 .slide-left
