@@ -9,7 +9,7 @@ var btnName = "btn";
 var mcEffect = "slide-left";
 // fullscreen or center content box-sizing
 // options: center, fullscreen, left-panel, right-panel
-var mcTheme = "center"
+var mcTheme = "right-panel"
 
 
 
@@ -23,14 +23,15 @@ var morphBtn = document.getElementById("morph-btn");
 var morphContent = document.getElementById("morph-btn__content");
 var btnID = [];
 
-// get height and width of btn and add to morph-btn
-var btnW = morphBtn.style.width = btn[0].offsetWidth + "px";
-var btnH = morphBtn.style.height = btn[0].offsetHeight + "px";
+window.onload = function(){
+  onScroll();
+  onWindowResize();
+  // get height and width of btn and add to morph-btn
+  morphBtn.style.width = btn[0].offsetWidth + "px";
+  morphBtn.style.height = btn[0].offsetHeight + "px";
+  morphBtn.style.left = btn[0].offsetLeft + "px";
 
-// get initial position of first btn on page
-morphBtn.style.left = btn[0].offsetLeft + "px";
-var viewportOffset = btn[0].getBoundingClientRect();
-morphBtn.style.top = viewportOffset.top + "px";
+};
 
 // setAttribute ID on all btn elements
 // and push the elements to btnID array
@@ -48,7 +49,6 @@ for(var i = 0; i < btn.length; i++){
 function mouseOver(i) {
   return function(){
     morphBtn.style.left = btnID[i].offsetLeft + "px";
-    console.log("jup");
   }
 }
 
@@ -57,7 +57,6 @@ window.addEventListener("scroll", onScroll);
 function onScroll() {
     var viewportOffset = btn[0].getBoundingClientRect();
     morphBtn.style.top = viewportOffset.top + "px";
-    console.log("jup1");
 }
 
 window.addEventListener("resize", onWindowResize);
@@ -65,9 +64,6 @@ window.addEventListener("resize", onWindowResize);
 function onWindowResize() {
   return function(){
     morphBtn.style.left = btn[0].offsetLeft + "px";
-    var viewportOffset = btn[0].getBoundingClientRect();
-    morphBtn.style.top = viewportOffset.top + "px";
-    console.log("jup");
   }
 }
 
@@ -94,7 +90,6 @@ function whatClicked(i) {
 
         }
 
-       console.log(btnID[i]);
 
        // check if effect for morphContent was selected or is default
        if(mcEffect !== "default") {
