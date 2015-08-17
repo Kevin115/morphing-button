@@ -89,9 +89,6 @@ function whatClicked(i) {
        } else {
          morphContent.className += " morph-btn__content--open ";
        }
-
-     } else {
-       console.log("already open");
      }
   };
 }
