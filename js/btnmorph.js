@@ -9,11 +9,7 @@ var btnName = "btn";
 var mcEffect = "slide-left";
 // fullscreen or center content box-sizing
 // options: center, fullscreen, left-panel, right-panel
-var mcTheme = "right-panel"
-
-
-
-
+var mcTheme = "fullscreen";
 
 //**********************************************************//
 //                NO NEED TO TOUCH THIS HERE                //
@@ -23,15 +19,10 @@ var morphBtn = document.getElementById("morph-btn");
 var morphContent = document.getElementById("morph-btn__content");
 var btnID = [];
 
-window.onload = function(){
-  onScroll();
-  onWindowResize();
-  // get height and width of btn and add to morph-btn
-  morphBtn.style.width = btn[0].offsetWidth + "px";
-  morphBtn.style.height = btn[0].offsetHeight + "px";
-  morphBtn.style.left = btn[0].offsetLeft + "px";
-
-};
+// get height and width of btn and add to morph-btn
+morphBtn.style.width = btn[0].offsetWidth + "px";
+morphBtn.style.height = btn[0].offsetHeight + "px";
+morphBtn.style.left = btn[0].offsetLeft + "px";
 
 // setAttribute ID on all btn elements
 // and push the elements to btnID array
@@ -49,7 +40,7 @@ for(var i = 0; i < btn.length; i++){
 function mouseOver(i) {
   return function(){
     morphBtn.style.left = btnID[i].offsetLeft + "px";
-  }
+  };
 }
 
 window.addEventListener("scroll", onScroll);
@@ -62,10 +53,13 @@ function onScroll() {
 window.addEventListener("resize", onWindowResize);
 
 function onWindowResize() {
-  return function(){
     morphBtn.style.left = btn[0].offsetLeft + "px";
-  }
 }
+
+// call functions on load to get position
+// of the first btn on the page
+onScroll();
+onWindowResize();
 
 // text effect on morph
 // if not default add effect class to morphContent
@@ -75,21 +69,19 @@ if(mcEffect !== "default") {
 
 function whatClicked(i) {
    return function(){
-
      if(morphBtn.className !== "morph-btn--open" && morphContent.className !== "morph-btn__content--open") {
+
        // add class to morphBtn and morphContent
        morphBtn.className += " morph-btn--open morph-btn--" + mcTheme;
 
-        if(mcTheme = "center"){
-          btnID[i].style.display = "none";
-        } else {
-          setInterval(function () {
-            // hide clicked button after 1 second
-            btnID[i].style.opacity = "0";
-          }, 0);
+       // add class btn--hide to btn
+       btnID[i].style.display = "none";
 
-        }
+       // add overflow hidden to body
+       document.body.style.overflow = "hidden";
 
+       // prevent browser to skip to top of the page on btn click
+       event.preventDefault();
 
        // check if effect for morphContent was selected or is default
        if(mcEffect !== "default") {
@@ -98,12 +90,8 @@ function whatClicked(i) {
          morphContent.className += " morph-btn__content--open ";
        }
 
-       // add overflow hidden to body
-       document.body.style.overflow = "hidden";
-       // add class btn--hide to btn
-
-       // prevent browser to skip to top of the page on btn click
-       event.preventDefault();
-     };
+     } else {
+       console.log("already open");
+     }
   };
 }

@@ -19,27 +19,26 @@ body a {
   color: white;
   transition: all 0.5s ease-in-out;
   z-index: 1;
-  margin: 200px 0 0 500px;
 }
-/* line 37, ../sass/style.sass */
+/* line 36, ../sass/style.sass */
 .btn--color {
   background: #2981ba;
 }
 
-/* line 43, ../sass/style.sass */
+/* line 42, ../sass/style.sass */
 .morph-btn {
   position: fixed;
   background: #2981ba;
   border-radius: 50px;
   z-index: 1;
 }
-/* line 48, ../sass/style.sass */
+/* line 47, ../sass/style.sass */
 .morph-btn--open {
   transition: all 0.4s ease-in-out;
   overflow: scroll;
   z-index: 2 !important;
 }
-/* line 53, ../sass/style.sass */
+/* line 52, ../sass/style.sass */
 .morph-btn--fullscreen {
   border-radius: 0;
   width: 100% !important;
@@ -49,7 +48,7 @@ body a {
   right: 0 !important;
   bottom: 0 !important;
 }
-/* line 61, ../sass/style.sass */
+/* line 60, ../sass/style.sass */
 .morph-btn--left-panel {
   border-radius: 0;
   width: 40% !important;
@@ -58,7 +57,7 @@ body a {
   left: 0 !important;
   bottom: 0 !important;
 }
-/* line 68, ../sass/style.sass */
+/* line 67, ../sass/style.sass */
 .morph-btn--right-panel {
   border-radius: 0;
   width: 40% !important;
@@ -66,7 +65,7 @@ body a {
   top: 0 !important;
   left: 60% !important;
 }
-/* line 75, ../sass/style.sass */
+/* line 74, ../sass/style.sass */
 .morph-btn--center {
   border-radius: 5px;
   width: 350px !important;
@@ -75,34 +74,34 @@ body a {
   left: 50% !important;
   top: 50% !important;
 }
-/* line 82, ../sass/style.sass */
+/* line 81, ../sass/style.sass */
 .morph-btn__content {
   opacity: 0;
   position: relative;
   padding: 30px;
   box-sizing: border-box;
 }
-/* line 87, ../sass/style.sass */
+/* line 86, ../sass/style.sass */
 .morph-btn__content--open {
   opacity: 1;
   transition: all 0.7s ease-in-out;
   transition-delay: 0.3s;
 }
 
-/* line 93, ../sass/style.sass */
+/* line 92, ../sass/style.sass */
 .slide-left {
   left: -4000px;
 }
-/* line 95, ../sass/style.sass */
+/* line 94, ../sass/style.sass */
 .slide-left--open {
   left: 0;
 }
 
-/* line 98, ../sass/style.sass */
+/* line 97, ../sass/style.sass */
 .slide-top {
   top: -4000px;
 }
-/* line 100, ../sass/style.sass */
+/* line 99, ../sass/style.sass */
 .slide-top--open {
   top: 0;
 }
