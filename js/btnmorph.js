@@ -5,10 +5,10 @@
 var btnName = "btn";
 // add your effect for morph content - default fades in the content
 // options: default, slide-left, slide-top
-var mcEffect = "slide-left";
+var mcEffect = "default";
 // fullscreen or center content box-sizing
 // options: center, fullscreen, left-panel, right-panel
-var mcTheme = "fullscreen";
+var mcTheme = "center";
 
 
 //**********************************************************//
@@ -17,34 +17,32 @@ var mcTheme = "fullscreen";
 var btn = document.getElementsByClassName('btn');
 var morphBtn = document.getElementById("morph-btn");
 var morphContent = document.getElementById("morph-btn__content");
-var btnID = [];
-
 
 // get height and width of btn and add to morph-btn
 morphBtn.style.width = btn[0].offsetWidth + "px";
 morphBtn.style.height = btn[0].offsetHeight + "px";
-morphBtn.style.left = btn[0].offsetLeft + "px";
-
 
 // setAttribute ID on all btn elements
 // and push the elements to btnID array
-for(var i = 0; i < btn.length; i++) {
+var btnID = [];
+var i;
+
+for(i = 0; i < btn.length; i++) {
     btn[i].setAttribute("id", "btn" + (i+1));
     var btnw = document.getElementById("btn" + (i+1));
     btnID.push(btnw);
 
-    btnID[i].addEventListener("click", whatClicked(i));
+    btnID[i].addEventListener("click", whatClicked());
 
-    btnID[i].addEventListener("mouseover", mouseOver(i));
+    btnID[i].addEventListener("mouseover", mouseOver());
 }
 
-
-function mouseOver(i) {
+function mouseOver() {
     return function() {
-        morphBtn.style.left = btnID[i].offsetLeft + "px";
+        morphBtn.style.left = this.offsetLeft + "px";
+        morphBtn.style.top = this.offsetTop + "px";
     };
 }
-
 
 function onScroll() {
     var viewportOffset = btn[0].getBoundingClientRect();
@@ -53,18 +51,11 @@ function onScroll() {
 
 window.addEventListener("scroll", onScroll);
 
-
 function onWindowResize() {
     morphBtn.style.left = btn[0].offsetLeft + "px";
 }
 
 window.addEventListener("resize", onWindowResize);
-
-
-// call functions on load to get position
-// of the first btn on the page
-onScroll();
-onWindowResize();
 
 
 // text effect on morph
@@ -73,8 +64,7 @@ if(mcEffect !== "default") {
     morphContent.className += " " + mcEffect;
 }
 
-
-function whatClicked(i) {
+function whatClicked() {
     return function() {
         if(morphBtn.className !== "morph-btn--open" && morphContent.className !== "morph-btn__content--open") {
             // add class to morphBtn and morphContent
