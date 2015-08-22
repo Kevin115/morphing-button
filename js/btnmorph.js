@@ -14,7 +14,7 @@ var mcTheme = "center";
 //**********************************************************//
 //                NO NEED TO TOUCH THIS HERE                //
 //**********************************************************//
-var btn = document.getElementsByClassName('btn');
+var btn = document.getElementsByClassName(btnName);
 var morphBtn = document.getElementById("morph-btn");
 var morphContent = document.getElementById("morph-btn__content");
 
@@ -27,9 +27,9 @@ morphBtn.style.height = btn[0].offsetHeight + "px";
 var btnID = [];
 var i;
 
-for(i = 0; i < btn.length; i++) {
-    btn[i].setAttribute("id", "btn" + (i+1));
-    var btnw = document.getElementById("btn" + (i+1));
+for (i = 0; i < btn.length; i++) {
+    btn[i].setAttribute("id", "btn" + (i + 1));
+    var btnw = document.getElementById("btn" + (i + 1));
     btnID.push(btnw);
 
     btnID[i].addEventListener("click", whatClicked());
@@ -38,13 +38,15 @@ for(i = 0; i < btn.length; i++) {
 }
 
 function mouseOver() {
-    return function() {
+    "use strict";
+    return function () {
         morphBtn.style.left = this.offsetLeft + "px";
         morphBtn.style.top = this.offsetTop + "px";
     };
 }
 
 function onScroll() {
+    "use strict";
     var viewportOffset = btn[0].getBoundingClientRect();
     morphBtn.style.top = viewportOffset.top + "px";
 }
@@ -52,6 +54,7 @@ function onScroll() {
 window.addEventListener("scroll", onScroll);
 
 function onWindowResize() {
+    "use strict";
     morphBtn.style.left = btn[0].offsetLeft + "px";
 }
 
@@ -60,13 +63,14 @@ window.addEventListener("resize", onWindowResize);
 
 // text effect on morph
 // if not default add effect class to morphContent
-if(mcEffect !== "default") {
+if (mcEffect !== "default") {
     morphContent.className += " " + mcEffect;
 }
 
 function whatClicked() {
-    return function() {
-        if(morphBtn.className !== "morph-btn--open" && morphContent.className !== "morph-btn__content--open") {
+    "use strict";
+    return function () {
+        if (morphBtn.className !== "morph-btn--open" && morphContent.className !== "morph-btn__content--open") {
             // add class to morphBtn and morphContent
             morphBtn.className += " morph-btn--open morph-btn--" + mcTheme;
             // add class btn--hide to btn
@@ -76,10 +80,10 @@ function whatClicked() {
             // prevent browser to skip to top of the page on btn click
             event.preventDefault();
             // check if effect for morphContent was selected or is default
-            if(mcEffect !== "default") {
+            if (mcEffect !== "default") {
                 morphContent.className += " morph-btn__content--open " + mcEffect + "--open";
             } else {
-                  morphContent.className += " morph-btn__content--open ";
+                morphContent.className += " morph-btn__content--open ";
             }
         }
     };
